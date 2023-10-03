@@ -1,9 +1,10 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace game_spa.Models
 {
-    public class User
+    public class UserModel : IdentityUser
     {
 
         [Key]

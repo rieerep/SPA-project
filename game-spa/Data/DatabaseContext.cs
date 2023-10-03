@@ -1,16 +1,17 @@
 ﻿using game_spa.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace game_spa.Data
 {
-    public class DatabaseContext : DbContext
+    public class DatabaseContext : IdentityDbContext<UserModel>
     {
-        public DbSet<Game> Games { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<GameModel> Games { get; set; }
+        public DbSet<UserModel> Users { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public DatabaseContext(DbContextOptions<DatabaseContext> options)
+            : base(options)
         {
-            optionsBuilder.UseSqlServer("Data Source=JUPITER; Initial Catalog=GameSpaDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
         }
     }
 }

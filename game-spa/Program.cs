@@ -1,4 +1,5 @@
 using game_spa.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace game_spa
 {
@@ -9,6 +10,9 @@ namespace game_spa
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+            builder.Services.AddDbContext<DatabaseContext>(options =>
+                options.UseSqlServer(connectionString));
 
             builder.Services.AddControllersWithViews();
 
@@ -21,15 +25,15 @@ namespace game_spa
                 app.UseHsts();
             }
 
-            using (var context = new DatabaseContext())
-            {
-                var users = context.Users;
+            //using (var context = new DatabaseContext())
+            //{
+            //    var users = context.Users;
 
-                foreach (var user in users)
-                {
-                    Console.WriteLine(user.Name);
-                }
-            }
+            //    foreach (var user in users)
+            //    {
+            //        Console.WriteLine(user.Name);
+            //    }
+            //}
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

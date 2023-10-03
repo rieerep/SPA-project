@@ -4,16 +4,18 @@ using System.ComponentModel;
 
 namespace game_spa.Models
 {
-    public class Game
+    public class GameModel
     {
         public int Id { get; set; }
         public int Score { get; set; }
-        [ForeignKey("User")]
-        public int FkUser { get; set; }
+        
+        [ForeignKey("UserModel")]
+        public int UserId { get; set; }
 
         [DisplayName("Games played")]
         public int GamesPlayed { get; set; }
-        public virtual User User { get; set; }
+
+        public virtual IEnumerable<UserModel> User { get; set; }
 
     }
 }
