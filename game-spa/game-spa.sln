@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.7.34031.279
+VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "game-spa", "game-spa.csproj", "{CDC403FE-89D9-46D7-B700-D4083DC9A94E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "game-spa", "game-spa.csproj", "{BAF39EA0-086D-4CF5-A508-76C1B92213F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CDC403FE-89D9-46D7-B700-D4083DC9A94E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CDC403FE-89D9-46D7-B700-D4083DC9A94E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CDC403FE-89D9-46D7-B700-D4083DC9A94E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CDC403FE-89D9-46D7-B700-D4083DC9A94E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAF39EA0-086D-4CF5-A508-76C1B92213F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAF39EA0-086D-4CF5-A508-76C1B92213F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAF39EA0-086D-4CF5-A508-76C1B92213F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAF39EA0-086D-4CF5-A508-76C1B92213F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

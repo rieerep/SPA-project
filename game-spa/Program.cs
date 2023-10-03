@@ -1,4 +1,5 @@
 using game_spa.Data;
+using game_spa.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using game_spa.Models;
@@ -16,7 +17,14 @@ namespace game_spa
             builder.Services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(connectionString));
 
-                        builder.Services.AddDefaultIdentity<UserModel>(options => options.SignIn.RequireConfirmedAccount = true)
+            builder.Services.AddDefaultIdentity<UserModel>(
+                options =>
+                {
+                    options.SignIn.RequireConfirmedAccount = true;
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireUppercase = false;
+                })
                 .AddEntityFrameworkStores<DatabaseContext>();
 
             builder.Services.AddControllersWithViews();
@@ -30,20 +38,12 @@ namespace game_spa
                 app.UseHsts();
             }
 
-            //using (var context = new DatabaseContext())
-            //{
-            //    var users = context.Users;
-
-            //    foreach (var user in users)
-            //    {
-            //        Console.WriteLine(user.Name);
-            //    }
-            //}
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
 
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.MapControllerRoute(
                 name: "default",
