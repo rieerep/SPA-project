@@ -1,5 +1,7 @@
 using game_spa.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using game_spa.Models;
 
 namespace game_spa
 {
@@ -13,6 +15,9 @@ namespace game_spa
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             builder.Services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(connectionString));
+
+                        builder.Services.AddDefaultIdentity<UserModel>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<DatabaseContext>();
 
             builder.Services.AddControllersWithViews();
 
@@ -45,6 +50,7 @@ namespace game_spa
                 pattern: "{controller}/{action=Index}/{id?}");
 
             app.MapFallbackToFile("index.html");
+                        app.UseAuthentication();;
 
             app.Run();
         }
