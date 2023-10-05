@@ -2,7 +2,6 @@ using game_spa.Data;
 using game_spa.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using game_spa.Models;
 
 namespace game_spa
 {
@@ -29,6 +28,8 @@ namespace game_spa
 
             builder.Services.AddControllersWithViews();
 
+            builder.Services.AddRazorPages();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -50,7 +51,9 @@ namespace game_spa
                 pattern: "{controller}/{action=Index}/{id?}");
 
             app.MapFallbackToFile("index.html");
-                        app.UseAuthentication();;
+                        app.UseAuthentication();
+
+            app.MapRazorPages();
 
             app.Run();
         }
