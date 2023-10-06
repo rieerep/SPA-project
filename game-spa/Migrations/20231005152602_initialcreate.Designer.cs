@@ -12,8 +12,8 @@ using game_spa.Data;
 namespace game_spa.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20231003150309_init")]
-    partial class init
+    [Migration("20231005152602_initialcreate")]
+    partial class initialcreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
